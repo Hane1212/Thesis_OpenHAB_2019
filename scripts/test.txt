@@ -1,0 +1,82 @@
+--- 
+
++++ 
+
+@@ -1,21 +1,23 @@
+
++Alice_LivingDining_Motion: OFF,Alice_LivingDining_Motion: OFF
+
++LivingDining_Power: OFF,LivingDining_Power: OFF
+
++vTimeOfDay: DAY,vTimeOfDay: DAY
+
+ Alice_LivingDining_Motion: ON,Alice_LivingDining_Motion: ON
+
++LivingDining_Power: ON,LivingDining_Power: ON
+
+ Alice_LivingDining_Motion: OFF,Alice_LivingDining_Motion: OFF
+
+-Martin_LivingDining_Motion: OFF,Martin_LivingDining_Motion: OFF
+
+ LivingDining_Power: OFF,LivingDining_Power: OFF
+
+-Storm: OFF,Storm: OFF
+
+ Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON
+
+ Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON_1
+
+ LivingDining_Power: ON,LivingDining_Power: ON
+
+ Martin_LivingDining_Motion: OFF,Martin_LivingDining_Motion: OFF
+
+ LivingDining_Power: OFF,LivingDining_Power: OFF
+
+-Alice_LivingDining_Motion: ON,Alice_LivingDining_Motion: ON_1
+
++Alice_LivingDining_Motion: ON,Alice_LivingDining_Motion: ON
+
+ LivingDining_Power: ON,LivingDining_Power: ON
+
+-Alice_LivingDining_Motion: OFF,Alice_LivingDining_Motion: OFF_1
+
++Alice_LivingDining_Motion: OFF,Alice_LivingDining_Motion: OFF
+
+ LivingDining_Power: OFF,LivingDining_Power: OFF
+
+ Alice_LivingDining_Motion: ON,Alice_LivingDining_Motion: ON
+
+ LivingDining_Power: ON,LivingDining_Power: ON
+
+ Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON_2
+
+-Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON_3
+
++Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON
+
+ Martin_LivingDining_Motion: OFF,Martin_LivingDining_Motion: OFF_1
+
+ Alice_LivingDining_Motion: OFF,Alice_LivingDining_Motion: OFF
+
+ LivingDining_Power: OFF,LivingDining_Power: OFF
+
+@@ -40,8 +42,8 @@
+
+ LivingDining_Power: ON,LivingDining_Power: ON
+
+ Alice_LivingDining_Motion: OFF,Alice_LivingDining_Motion: OFF
+
+ LivingDining_Power: OFF,LivingDining_Power: OFF
+
++Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON_3
+
+ Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON_4
+
+-Martin_LivingDining_Motion: ON,Martin_LivingDining_Motion: ON
+
+ LivingDining_Power: ON,LivingDining_Power: ON
+
+ Martin_LivingDining_Motion: OFF,Martin_LivingDining_Motion: OFF
+
+ LivingDining_Power: OFF,LivingDining_Power: OFF
+

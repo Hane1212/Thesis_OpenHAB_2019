@@ -1,0 +1,19 @@
+2,"['Rule: Alice_In_LivingDining', 'LivingDining_Power send Command ON']"
+Alice_LivingDining_Motion: OFF,Rule: Alice_Out_LivingDining, LivingDining_Power send Command OFF, LivingDining_Door send Command CLOSED
+Alice_LivingDining_Motion: OFF_2,Rule: Alice_Out_LivingDining, LivingDining_Power send Command OFF, LivingDining_Door send Command CLOSED
+Alice_LivingDining_Motion: ON,Rule: Alice_In_LivingDining, LivingDining_Power send Command ON
+Alice_LivingDining_Motion: ON_2,Rule: Alice_In_LivingDining, LivingDining_Power send Command ON
+LivingDining_Power: OFF,Rule: PowerOFF_LivingDining, LivingDining_Light send Command OFF
+LivingDining_Power: OFF_2,Rule: PowerOFF_LivingDining, LivingDining_Light send Command OFF
+LivingDining_Power: ON,Rule: PowerON_LivingDining, LivingDining_Light send Command ON
+LivingDining_Power: ON_2,Rule: PowerON_LivingDining, LivingDining_Light send Command ON
+Martin_LivingDining_Motion: OFF,Rule: Martin_Out_LivingDining
+Martin_LivingDining_Motion: OFF_2,Rule: Martin_Out_LivingDining
+Martin_LivingDining_Motion: OFF_2,['Rule: Martin_Out_LivingDining']
+Martin_LivingDining_Motion: ON,Rule: Martin_In_LivingDining1, LivingDining_Power send Command ON
+Martin_LivingDining_Motion: ON_2,Rule: Martin_In_LivingDining1, LivingDining_Power send Command ON
+Storm: OFF,Rule: Storm_Finished, LivingDining_Shutter send Command 0
+Storm: OFF_2,Rule: Storm_Finished, LivingDining_Shutter send Command 0
+Storm: ON,Rule: Storm_Started, LivingDining_Door send Command CLOSED, LivingDining_Shutter send Command 100
+Storm: ON_2,Rule: Storm_Started, LivingDining_Door send Command CLOSED, LivingDining_Shutter send Command 100
+

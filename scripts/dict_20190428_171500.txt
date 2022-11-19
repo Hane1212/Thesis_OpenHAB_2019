@@ -1,0 +1,18 @@
+, 'LivingDining_Light send Command ON', 'LivingDining_Heating send Command 45']"
+Alice_LivingDining_Motion: OFF,Rule: Alice_Out_LivingDining, LivingDining_Power send Command OFF, LivingDining_Door send Command CLOSED
+Alice_LivingDining_Motion: OFF_2,Rule: Alice_Out_LivingDining, LivingDining_Power send Command OFF, LivingDining_Door send Command CLOSED
+Alice_LivingDining_Motion: ON,Rule: Alice_In_LivingDining
+Alice_LivingDining_Motion: ON_2,Rule: Alice_In_LivingDining
+LivingDining_Power: OFF,Rule: PowerOFF_LivingDining, LivingDining_Light send Command OFF, LivingDining_Heating send Command 30
+LivingDining_Power: OFF_2,Rule: PowerOFF_LivingDining, LivingDining_Light send Command OFF, LivingDining_Heating send Command 30
+LivingDining_Power: ON,Rule: PowerON_LivingDining, LivingDining_Light send Command ON, LivingDining_Heating send Command 45
+LivingDining_Power: ON_2,Rule: PowerON_LivingDining, LivingDining_Light send Command ON, LivingDining_Heating send Command 45
+Martin_LivingDining_Motion: OFF,Rule: Martin_Out_LivingDining
+Martin_LivingDining_Motion: OFF_2,Rule: Martin_Out_LivingDining
+Martin_LivingDining_Motion: ON,
+Martin_LivingDining_Motion: ON_2,
+Martin_LivingDining_Motion: ON_2,[]
+Storm: OFF,Rule: Storm_Finished, LivingDining_Shutter send Command 0
+Storm: ON,Rule: Storm_Started, LivingDining_Shutter send Command 100
+Storm: ON_2,Rule: Storm_Started, LivingDining_Shutter send Command 100
+

@@ -1,0 +1,31 @@
+vTimeOfDay: DAY,
+	"['Rule: Day_Time_Started', 
+		'LivingDining_Shutter send Command 0']"
+vTimeOfDay: DAY,
+	['Rule: Day_Time_Started']
+vTimeOfDay: NIGHT,
+	"['Rule: NIGHT_Time_Started', 
+		'LivingDining_Shutter send Command 100']"
+vTimeOfDay: AFTERNOON,
+	"['Rule: AFTERNOON_Time_Started', 
+		'LivingDining_Shutter send Command 50']"
+vTimeOfDay: AFTERNOON,
+	['Rule: AFTERNOON_Time_Started']
+Martin_LivingDining_Motion: ON,[]
+Martin_LivingDining_Motion: ON,
+	'LivingDining_Power send Command ON'
+Martin_LivingDining_Motion: OFF,
+	'LivingDining_Power send Command OFF'
+LivingDining_Power: ON,
+	'LivingDining_Light send Command ON', 
+	'LivingDining_Heating send Command 45']"
+LivingDining_Power: OFF,
+	"['Rule: PowerOFF_LivingDining', 
+		'LivingDining_Light send Command OFF', 
+		'LivingDining_Heating send Command 30']"
+Storm: ON,
+	"['Rule: Storm_Started', 
+		'LivingDining_Shutter send Command 100']"
+Storm: OFF,
+	['Rule: Storm_Finished']
+

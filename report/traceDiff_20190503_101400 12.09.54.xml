@@ -1,0 +1,958 @@
+<trace xmlns:diff="http://namespaces.shoobx.com/diff" version="1.0">
+	<head>
+		<title>My smart home data</title>
+		<dateCreated>2019-05-03 1<diff:delete>0:30:32.498535</diff:delete><diff:insert>4:49:01.000218</diff:insert></dateCreated>
+	</head>
+	<body>
+		<body>
+			<body/>
+			<trigger item="vTimeOfDay" state="DAY" diff:delete="">
+				<rule rule="Rule: Day_Time_Started" state="START">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Day_Time_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:delete="">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START">
+					<action action="LivingDining_Door send command OPEN"/>
+				</rule>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:insert="">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:insert=""/>
+			<diff:delete>	</diff:delete><rule rule="Rule: Martin_In_LivingDining1" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH" diff:insert=""/>
+			<diff:insert>	</diff:insert><rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Alice_In_LivingDining" state="START"/>
+				<rule rule="Rule: Alice_In_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START"/>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+			<diff:delete>	</diff:delete><rule rule="Rule: Alice_Out_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			<diff:insert>	</diff:insert><rule rule="Rule: Alice_Out_LivingDining" state="FINISH" diff:insert=""/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:insert="" diff:update-attr="item:vTimeOfDay;state:DAY">
+				<rule rule="Rule: Storm_Started" state="START" diff:insert="">
+					<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				<diff:insert>	</diff:insert><action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Day_Time_Started" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH" diff:update-attr="rule:Rule: Day_Time_Started"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:delete="">
+				<rule rule="Rule: Storm_Started" state="START">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="OFF">
+				<rule rule="Rule: Storm_Finished" state="START" diff:insert="" diff:update-attr="rule:Rule: Day_Time_Started">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON"/>
+			<trigger item="Martin_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START" diff:delete="">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining2" state="START">
+					<action action="LivingDining_Door send command OPEN"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining1" state="START" diff:insert="">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON">
+				<rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH"/>
+			<diff:insert>	</diff:insert><rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:insert=""/>
+			<diff:delete>	</diff:delete></trigger>
+			<trigger item="Storm" state="ON" diff:insert="">
+				<rule rule="Rule: Storm_Started" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="START" diff:insert="">
+					<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				<diff:insert>	</diff:insert><action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:delete="">
+				<rule rule="Rule: Storm_Started" state="START">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Alice_In_LivingDining" state="START"/>
+				<rule rule="Rule: Alice_In_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START"/>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				</rule>
+			<diff:insert>	</diff:insert><rule rule="Rule: Alice_Out_LivingDining" state="FINISH" diff:insert=""/>
+			<diff:delete>	</diff:delete></trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="OFF">
+				<rule rule="Rule: Storm_Finished" state="START" diff:insert="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:insert="">
+				<rule rule="Rule: Storm_Started" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="START" diff:insert="">
+					<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				<diff:insert>	</diff:insert><action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:delete="">
+				<rule rule="Rule: Storm_Started" state="START">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="OFF">
+				<rule rule="Rule: Storm_Finished" state="START" diff:insert="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Alice_In_LivingDining" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+			<diff:delete>	</diff:delete><rule rule="Rule: Alice_In_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON">
+				<rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH"/>
+			<diff:insert>	</diff:insert><rule rule="Rule: Alice_In_LivingDining" state="FINISH" diff:insert=""/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:delete=""/>
+			<trigger diff:insert="" item="Martin_LivingDining_Motion" diff:add-attr="item;state" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START" diff:insert="">
+					<action action="LivingDining_Door send command OPEN"/>
+				</rule>
+			<diff:delete>	</diff:delete></trigger><diff:insert>
+			</diff:insert><trigger item="Martin_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START" diff:delete="">
+					<action action="LivingDining_Door send command OPEN"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH"/>
+				<rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START" diff:insert="" diff:update-attr="rule:Rule: Alice_Out_LivingDining">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				</rule>
+			<diff:delete>	</diff:delete><rule rule="Rule: Martin_Out_LivingDining" state="START" diff:delete="">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH" diff:insert=""/>
+			<diff:insert>	</diff:insert><rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:insert="">
+				<rule rule="Rule: Storm_Started" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="START" diff:insert="">
+					<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				<diff:insert>	</diff:insert><action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:delete="">
+				<rule rule="Rule: Storm_Started" state="START">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:delete="">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START"/>
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON">
+				<rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+			<diff:delete>	</diff:delete><rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:insert="">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START" diff:delete=""/>
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH"/>
+			<diff:insert>	</diff:insert><rule rule="Rule: Martin_In_LivingDining2" state="START" diff:insert=""/>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:insert=""/>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH" diff:insert=""/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert="" diff:update-attr="action:LivingDining_Shutter send command 0"/>
+				</rule>
+			<diff:delete>	</diff:delete><rule rule="Rule: Martin_Out_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH" diff:insert=""/>
+			<diff:insert>	</diff:insert><rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Alice_In_LivingDining" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+				<rule rule="Rule: Alice_In_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON">
+				<rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START" diff:delete="">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="START" diff:insert="" diff:update-attr="rule:Rule: Martin_Out_LivingDining">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert="" diff:update-attr="action:LivingDining_Power send command OFF"/>
+				<diff:delete>	</diff:delete></rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:insert=""/>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+			<diff:insert>	</diff:insert><rule rule="Rule: Martin_In_LivingDining2" state="START" diff:insert=""/>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:insert=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON" diff:update-attr="item:Martin_LivingDining_Motion">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START" diff:delete=""/>
+				<rule rule="Rule: PowerON_LivingDining" state="START" diff:insert="">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH"/>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:delete=""/>
+			<rule rule="Rule: PowerON_LivingDining" state="FINISH" diff:insert=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON" diff:delete="">
+				<rule rule="Rule: PowerON_LivingDining" state="START">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Alice_In_LivingDining" state="START"/>
+				<rule rule="Rule: Alice_In_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START"/>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:insert="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert=""/>
+				</rule>
+			<diff:delete>	</diff:delete><rule rule="Rule: Alice_Out_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH" diff:insert=""/>
+			<diff:insert>	</diff:insert><rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Alice_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Alice_Out_LivingDining" state="START">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED"/>
+				</rule>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH"/>
+				<rule rule="Rule: Alice_Out_LivingDining" state="FINISH"/>
+			</trigger>
+			<trigger item="Storm" state="OFF">
+				<rule rule="Rule: Storm_Finished" state="START" diff:insert="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="FINISH"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:delete="">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON">
+				<rule rule="Rule: Martin_In_LivingDining2" state="START">
+					<action action="LivingDining_Door send command OPEN"/>
+				</rule>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="ON" diff:insert="">
+				<rule rule="Rule: Martin_In_LivingDining1" state="START">
+					<action action="LivingDining_Power send command ON"/>
+				</rule>
+			<diff:insert>	</diff:insert><rule rule="Rule: Martin_In_LivingDining1" state="FINISH" diff:insert=""/>
+			<diff:delete>	</diff:delete></trigger>
+			<trigger item="LivingDining_Power" state="ON" diff:insert="">
+				<rule rule="Rule: PowerON_LivingDining" state="START" diff:delete="">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH" diff:delete=""/>
+			<rule rule="Rule: PowerON_LivingDining" state="START" diff:insert="">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:insert=""/>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH" diff:insert=""/>
+			</trigger>
+			<trigger item="Storm" state="ON" diff:insert="">
+				<rule rule="Rule: Storm_Started" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="START" diff:insert="">
+					<action action="LivingDining_Door send command CLOSED" diff:insert="" diff:update-attr="action:LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Started" state="FINISH"/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="ON" diff:delete="">
+				<rule rule="Rule: Martin_In_LivingDining1" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: Martin_In_LivingDining2" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: PowerON_LivingDining" state="START" diff:delete="">
+					<action action="LivingDining_Light send command ON"/>
+					<action action="LivingDining_Heating send command 45"/>
+				</rule>
+				<rule rule="Rule: PowerON_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="Storm" state="OFF" diff:update-attr="state:ON">
+				<rule rule="Rule: Storm_Started" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 100"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="START" diff:insert="">
+					<action action="LivingDining_Shutter send command 0"/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="FINISH" diff:update-attr="rule:Rule: Storm_Started"/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF" diff:insert="" diff:update-attr="item:Alice_LivingDining_Motion">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START" diff:update-attr="rule:Rule: Alice_Out_LivingDining">
+					<action action="LivingDining_Power send command OFF"/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				<action action="LivingDining_Door send command CLOSED" diff:insert="" diff:update-attr="action:LivingDining_Heating send command 30"/>
+				</rule>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:insert="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START">
+					<action action="LivingDining_Light send command OFF"/>
+					<action action="LivingDining_Heating send command 30"/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH" diff:delete=""/>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH" diff:update-attr="rule:Rule: Alice_Out_LivingDining"/>
+			<diff:insert>	</diff:insert><rule rule="Rule: PowerOFF_LivingDining" state="FINISH" diff:insert=""/>
+			<diff:delete>	</diff:delete></trigger>
+		<diff:delete>	</diff:delete><trigger item="Storm" state="OFF" diff:delete="">
+				<rule rule="Rule: Storm_Finished" state="START" diff:delete="">
+					<action action="LivingDining_Shutter send command 0" diff:delete=""/>
+				</rule>
+				<rule rule="Rule: Storm_Finished" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="Martin_LivingDining_Motion" state="OFF" diff:delete="">
+				<rule rule="Rule: Martin_Out_LivingDining" state="START" diff:delete="">
+					<action action="LivingDining_Power send command OFF" diff:delete=""/>
+					<action action="LivingDining_Door send command CLOSED" diff:delete=""/>
+				</rule>
+				<rule rule="Rule: Martin_Out_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+			<trigger item="LivingDining_Power" state="OFF" diff:delete="">
+				<rule rule="Rule: PowerOFF_LivingDining" state="START" diff:delete="">
+					<action action="LivingDining_Light send command OFF" diff:delete=""/>
+					<action action="LivingDining_Heating send command 30" diff:delete=""/>
+				</rule>
+				<rule rule="Rule: PowerOFF_LivingDining" state="FINISH" diff:delete=""/>
+			</trigger>
+		</body>
+		<body>
+			<state item="TimeOfDay" state="DAY" time="2019-05-03 10:09:57.732" diff:delete=""/>
+			<state state="OPEN" diff:insert="" diff:rename="rule" diff:update-attr="state:FINISH" item="LivingDining_Door" diff:add-attr="item;time" time="2019-05-03 14:43:44.763" diff:delete-attr="rule"/>
+			<state state="ON" diff:insert="" diff:rename="rule" diff:update-attr="state:FINISH" item="Martin_LivingDining_Motion" diff:add-attr="item;time" time="2019-05-03 14:43:44.769" diff:delete-attr="rule"/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:43:44.795" diff:insert="" diff:update-attr="time:2019-05-03 10:11:39.784"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:43:44.804" diff:insert="" diff:update-attr="time:2019-05-03 10:13:11.240"/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 14:43:53.852" diff:insert="" diff:update-attr="time:2019-05-03 10:12:30.868"/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 14:43:56.814" diff:insert="" diff:update-attr="time:2019-05-03 10:11:06.050"/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 14:43:59.856" diff:insert="" diff:update-attr="time:2019-05-03 10:11:20.955"/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:43:59.932" diff:insert="" diff:update-attr="time:2019-05-03 10:11:20.991"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:43:59.953" diff:insert="" diff:update-attr="state:45;time:2019-05-03 10:11:39.790"/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 14:43:59.969" diff:insert="" diff:update-attr="item:Martin_LivingDining_Motion;state:ON;time:2019-05-03 10:13:51.266"/>
+			<state item="Storm" state="ON" time="2019-05-03 14:44:05.958" diff:insert="" diff:update-attr="item:LivingDining_Heating;state:45;time:2019-05-03 10:13:51.325"/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 14:44:05.978" diff:update-attr="state:0;time:2019-05-03 10:09:57.740"/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 10:10:04.458" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 10:10:04.484" diff:delete=""/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:10:04.488" diff:delete=""/>
+			<state item="Storm" state="OFF" time="2019-05-03 14:44:08.984" diff:insert="" diff:update-attr="time:2019-05-03 10:13:45.122"/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 14:44:08.992" diff:insert="" diff:update-attr="time:2019-05-03 10:13:45.135"/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 14:44:12.053" diff:update-attr="time:2019-05-03 10:10:27.005"/>
+			<state item="LivingDining_Door" state="OPEN" time="2019-05-03 14:44:12.078" diff:update-attr="time:2019-05-03 10:10:27.017"/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:44:12.092" diff:update-attr="time:2019-05-03 10:10:27.017"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:44:12.110" diff:update-attr="time:2019-05-03 10:10:27.025"/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 10:10:34.280" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 10:10:53.485" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 10:11:06.050" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 10:11:20.955" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 10:11:20.991" diff:delete=""/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 10:11:20.999" diff:delete=""/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:11:21.009" diff:delete=""/>
+			<state item="Storm" state="ON" time="2019-05-03 14:44:21.096" diff:update-attr="time:2019-05-03 10:11:28.040"/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 14:44:21.109" diff:insert="" diff:update-attr="time:2019-05-03 10:11:20.999"/>
+			<state item="Storm" state="OFF" time="2019-05-03 10:11:35.825" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 10:11:35.841" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 10:11:39.766" diff:delete=""/>
+			<state item="LivingDining_Door" state="OPEN" time="2019-05-03 10:11:39.784" diff:delete=""/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 10:11:39.784" diff:delete=""/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 10:11:39.790" diff:delete=""/>
+			<state item="Storm" state="ON" time="2019-05-03 10:11:46.365" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 10:11:46.383" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 10:11:57.498" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 10:12:03.220" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 10:12:07.883" diff:delete=""/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 10:12:07.906" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 10:12:07.924" diff:delete=""/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:12:07.925" diff:delete=""/>
+			<state item="Storm" state="OFF" time="2019-05-03 10:12:12.666" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 14:44:21.112" diff:update-attr="state:0;time:2019-05-03 10:12:12.680"/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 14:44:24.120" diff:insert="" diff:update-attr="time:2019-05-03 10:13:24.032"/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 14:44:27.114" diff:insert="" diff:update-attr="time:2019-05-03 10:13:40.117"/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 14:44:30.144" diff:insert="" diff:update-attr="time:2019-05-03 10:12:07.883"/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:44:30.162" diff:insert="" diff:update-attr="time:2019-05-03 10:10:04.484"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:44:30.167" diff:insert="" diff:update-attr="time:2019-05-03 10:10:04.488"/>
+			<state item="Storm" state="OFF" time="2019-05-03 14:44:36.196" diff:insert="" diff:update-attr="state:ON;time:2019-05-03 10:13:04.369"/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 14:44:36.207" diff:insert="" diff:update-attr="time:2019-05-03 10:12:27.307"/>
+			<state item="Storm" state="ON" time="2019-05-03 14:44:39.215" diff:insert="" diff:update-attr="item:TimeOfDay;state:DAY;time:2019-05-03 10:09:57.732"/>
+			<state item="Storm" state="ON" time="2019-05-03 10:12:22.097" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 14:44:39.233" diff:update-attr="time:2019-05-03 10:12:22.109"/>
+			<state item="Storm" state="OFF" time="2019-05-03 14:44:42.241" diff:update-attr="time:2019-05-03 10:12:27.294"/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 14:44:42.269" diff:insert="" diff:update-attr="item:LivingDining_Door;state:OPEN;time:2019-05-03 10:13:51.276"/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 14:44:45.260" diff:insert="" diff:update-attr="time:2019-05-03 10:13:36.050"/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:44:45.275" diff:insert="" diff:update-attr="time:2019-05-03 10:12:47.151"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:44:45.283" diff:insert="" diff:update-attr="state:30;time:2019-05-03 10:13:29.035"/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 14:44:51.303" diff:insert="" diff:update-attr="time:2019-05-03 10:10:04.458"/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 10:12:27.307" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 10:12:30.868" diff:delete=""/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 10:12:30.899" diff:delete=""/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 10:12:30.903" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 10:12:35.269" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:44:51.325" diff:update-attr="time:2019-05-03 10:12:35.299"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:44:51.337" diff:insert="" diff:update-attr="time:2019-05-03 10:12:07.925"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:12:35.303" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 10:12:47.120" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 14:44:57.326" diff:insert="" diff:update-attr="time:2019-05-03 10:13:11.227"/>
+			<state item="LivingDining_Door" state="OPEN" time="2019-05-03 14:44:57.335" diff:update-attr="time:2019-05-03 10:12:47.132"/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 10:12:47.151" diff:delete=""/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 10:12:47.164" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 10:12:52.594" diff:delete=""/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:44:57.352" diff:insert="" diff:update-attr="time:2019-05-03 10:13:33.618"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:44:57.359" diff:insert="" diff:update-attr="time:2019-05-03 10:13:33.621"/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 14:45:06.423" diff:insert="" diff:update-attr="time:2019-05-03 10:13:20.015"/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 14:45:06.436" diff:update-attr="time:2019-05-03 10:12:52.618"/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:45:06.441" diff:update-attr="time:2019-05-03 10:12:52.626"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:45:06.447" diff:insert="" diff:update-attr="time:2019-05-03 10:12:35.303"/>
+			<state item="Storm" state="ON" time="2019-05-03 14:45:12.486" diff:insert="" diff:update-attr="time:2019-05-03 10:11:46.365"/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 14:45:12.506" diff:insert="" diff:update-attr="time:2019-05-03 10:10:34.280"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:12:52.641" diff:delete=""/>
+			<state item="Storm" state="ON" time="2019-05-03 10:13:04.369" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 10:13:04.381" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 10:13:11.227" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 14:45:15.515" diff:insert="" diff:update-attr="time:2019-05-03 10:13:33.579"/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:45:15.532" diff:update-attr="time:2019-05-03 10:13:11.235"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:45:15.541" diff:insert="" diff:update-attr="time:2019-05-03 10:12:47.164"/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 14:45:24.579" diff:insert="" diff:update-attr="time:2019-05-03 10:12:52.594"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 10:13:11.240" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 10:13:20.015" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:45:24.611" diff:update-attr="time:2019-05-03 10:13:20.030"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:45:24.614" diff:insert="" diff:update-attr="time:2019-05-03 10:11:21.009"/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 14:45:30.591" diff:insert="" diff:update-attr="time:2019-05-03 10:10:53.485"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:13:20.037" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 10:13:24.032" diff:delete=""/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:45:30.640" diff:update-attr="time:2019-05-03 10:13:24.050"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:45:30.653" diff:insert="" diff:update-attr="state:30;time:2019-05-03 10:13:20.037"/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 14:45:36.659" diff:insert="" diff:update-attr="time:2019-05-03 10:12:35.269"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 10:13:24.057" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 10:13:28.998" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:45:36.678" diff:update-attr="time:2019-05-03 10:13:29.032"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:45:36.689" diff:insert="" diff:update-attr="state:45;time:2019-05-03 10:12:30.903"/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 14:45:42.703" diff:insert="" diff:update-attr="time:2019-05-03 10:12:47.120"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:13:29.035" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 10:13:33.579" diff:delete=""/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 10:13:33.618" diff:delete=""/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 10:13:33.621" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 10:13:36.050" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 10:13:40.117" diff:delete=""/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 10:13:42.376" diff:delete=""/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:45:42.735" diff:update-attr="state:OFF;time:2019-05-03 10:13:42.407"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:45:42.747" diff:update-attr="state:30;time:2019-05-03 10:13:42.409"/>
+			<state item="Alice_LivingDining_Motion" state="ON" time="2019-05-03 14:45:51.806" diff:insert="" diff:update-attr="time:2019-05-03 10:11:57.498"/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 14:45:54.831" diff:insert="" diff:update-attr="item:Alice_LivingDining_Motion;time:2019-05-03 10:13:42.376"/>
+			<state item="Alice_LivingDining_Motion" state="OFF" time="2019-05-03 14:45:57.817" diff:insert="" diff:update-attr="time:2019-05-03 10:13:28.998"/>
+			<state item="Storm" state="OFF" time="2019-05-03 10:13:45.122" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 10:13:45.135" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 10:13:51.266" diff:delete=""/>
+			<state item="LivingDining_Door" state="OPEN" time="2019-05-03 10:13:51.276" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:45:57.859" diff:update-attr="state:ON;time:2019-05-03 10:13:51.298"/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 14:45:57.866" diff:insert="" diff:update-attr="state:45;time:2019-05-03 10:13:24.057"/>
+			<state item="Storm" state="OFF" time="2019-05-03 14:46:03.865" diff:insert="" diff:update-attr="time:2019-05-03 10:11:35.825"/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 14:46:03.874" diff:insert="" diff:update-attr="state:100;time:2019-05-03 10:11:46.383"/>
+			<state item="Martin_LivingDining_Motion" state="ON" time="2019-05-03 14:46:06.895" diff:insert="" diff:update-attr="time:2019-05-03 10:11:39.766"/>
+			<state item="LivingDining_Door" state="OPEN" time="2019-05-03 14:46:06.928" diff:insert="" diff:update-attr="time:2019-05-03 10:11:39.784"/>
+			<state item="LivingDining_Heating" state="45" time="2019-05-03 14:46:06.930" diff:insert="" diff:update-attr="state:30;time:2019-05-03 10:12:52.641"/>
+			<state item="LivingDining_Light" state="ON" time="2019-05-03 14:46:06.930" diff:insert="" diff:update-attr="time:2019-05-03 10:12:30.899"/>
+			<state item="Storm" state="ON" time="2019-05-03 14:46:15.982" diff:insert="" diff:update-attr="time:2019-05-03 10:12:22.097"/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 14:46:15.990" diff:insert="" diff:update-attr="time:2019-05-03 10:12:07.906"/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 14:46:15.995" diff:insert="" diff:update-attr="time:2019-05-03 10:13:04.381"/>
+			<state item="Storm" state="OFF" time="2019-05-03 14:46:19.006" diff:insert="" diff:update-attr="time:2019-05-03 10:12:12.666"/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 14:46:19.013" diff:insert="" diff:update-attr="time:2019-05-03 10:11:35.841"/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 14:46:22.026" diff:insert="" diff:update-attr="time:2019-05-03 10:12:03.220"/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 14:46:22.049" diff:insert="" diff:update-attr="time:2019-05-03 10:12:07.924"/>
+		<diff:delete>	</diff:delete><state item="LivingDining_Heating" state="45" time="2019-05-03 10:13:51.325" diff:delete=""/>
+			<state item="Storm" state="ON" time="2019-05-03 10:13:54.639" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="100" time="2019-05-03 10:13:54.649" diff:delete=""/>
+			<state item="Storm" state="OFF" time="2019-05-03 10:14:00.759" diff:delete=""/>
+			<state item="LivingDining_Shutter" state="0" time="2019-05-03 10:14:00.770" diff:delete=""/>
+			<state item="Martin_LivingDining_Motion" state="OFF" time="2019-05-03 10:14:03.377" diff:delete=""/>
+			<state item="LivingDining_Door" state="CLOSED" time="2019-05-03 10:14:03.406" diff:delete=""/>
+			<state item="LivingDining_Light" state="OFF" time="2019-05-03 10:14:03.414" diff:delete=""/>
+			<state item="LivingDining_Heating" state="30" time="2019-05-03 10:14:03.416" diff:delete=""/>
+		</body>
+	</body>
+</trace>
+1 {'item': 'vTimeOfDay', 'state': 'DAY', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+2 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+3 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+4 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+5 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 0
+6 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+7 {'item': 'LivingDining_Power', 'state': 'ON'}
+0 {}
+0 1
+8 {'item': 'Alice_LivingDining_Motion', 'state': 'ON'}
+0 0
+9 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF'}
+0 0
+10 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+11 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+12 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': '', '{http://namespaces.shoobx.com/diff}update-attr': 'item:vTimeOfDay;state:DAY'}
+0 {}
+0 1
+13 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+14 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+15 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+16 {'item': 'Storm', 'state': 'OFF'}
+0 0
+17 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 0
+18 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 0
+19 {'item': 'LivingDining_Power', 'state': 'ON'}
+0 {}
+0 {}
+0 1
+20 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+21 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+22 {'item': 'Alice_LivingDining_Motion', 'state': 'ON'}
+0 0
+23 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF'}
+0 0
+24 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 {}
+0 1
+25 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+26 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+27 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+28 {'item': 'Storm', 'state': 'OFF'}
+0 0
+29 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+30 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+31 {'item': 'Storm', 'state': 'OFF'}
+0 0
+32 {'item': 'Alice_LivingDining_Motion', 'state': 'ON'}
+0 {}
+0 1
+33 {'item': 'LivingDining_Power', 'state': 'ON'}
+0 {}
+0 1
+34 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+35 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+36 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+37 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+38 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+39 {'{http://namespaces.shoobx.com/diff}insert': '', 'item': 'Martin_LivingDining_Motion', '{http://namespaces.shoobx.com/diff}add-attr': 'item;state', 'state': 'ON'}
+0 {}
+0 1
+40 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 0
+41 {'item': 'LivingDining_Power', 'state': 'ON'}
+0 0
+42 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+43 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+44 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+45 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+46 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+47 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+48 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 0
+49 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+50 {'item': 'LivingDining_Power', 'state': 'ON'}
+0 {}
+0 1
+51 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+52 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+53 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+54 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+55 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+56 {'item': 'Alice_LivingDining_Motion', 'state': 'ON'}
+0 0
+57 {'item': 'LivingDining_Power', 'state': 'ON'}
+0 0
+58 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+59 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+60 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+61 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+62 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+63 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 {}
+0 1
+64 {'item': 'LivingDining_Power', 'state': 'ON', '{http://namespaces.shoobx.com/diff}update-attr': 'item:Martin_LivingDining_Motion'}
+0 0
+65 {'item': 'LivingDining_Power', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+66 {'item': 'Alice_LivingDining_Motion', 'state': 'ON'}
+0 0
+67 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF'}
+0 0
+68 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+69 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 1
+70 {'item': 'Alice_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+71 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+72 {'item': 'Storm', 'state': 'OFF'}
+0 0
+73 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+74 {'item': 'Martin_LivingDining_Motion', 'state': 'ON'}
+0 0
+75 {'item': 'Martin_LivingDining_Motion', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 {}
+0 1
+76 {'item': 'LivingDining_Power', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+77 {'item': 'Storm', 'state': 'ON', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 0
+78 {'item': 'LivingDining_Power', 'state': 'ON', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+79 {'item': 'Storm', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}update-attr': 'state:ON'}
+0 0
+80 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': '', '{http://namespaces.shoobx.com/diff}update-attr': 'item:Alice_LivingDining_Motion'}
+0 0
+81 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}insert': ''}
+0 {}
+0 {}
+0 1
+82 {'item': 'Storm', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+83 {'item': 'Martin_LivingDining_Motion', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0
+84 {'item': 'LivingDining_Power', 'state': 'OFF', '{http://namespaces.shoobx.com/diff}delete': ''}
+0 0

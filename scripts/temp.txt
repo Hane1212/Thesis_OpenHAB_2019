@@ -1,0 +1,16 @@
+Alice_LivingDining_Motion: ON,Rule: Alice_In_LivingDining
+Martin_LivingDining_Motion: OFF,Rule: Martin_Out_LivingDining
+Alice_LivingDining_Motion: OFF,Rule: Alice_Out_LivingDining, LivingDining_Power send Command OFF, LivingDining_Door send Command CLOSED
+LivingDining_Power: OFF,Rule: PowerOFF_LivingDining, LivingDining_Light send Command OFF, LivingDining_Heating send Command 30
+Storm: OFF,Rule: Storm_Finished, LivingDining_Shutter send Command 0
+Martin_LivingDining_Motion: ON,
+Martin_LivingDining_Motion: ON_1,Rule: Martin_In_LivingDining2, LivingDining_Door send Command OPEN, Rule: Martin_In_LivingDining1, LivingDining_Power send Command ON
+LivingDining_Power: ON,Rule: PowerON_LivingDining, LivingDining_Light send Command ON, LivingDining_Heating send Command 45
+Storm: ON,Rule: Storm_Started, LivingDining_Shutter send Command 100
+Storm: OFF_2,Rule: Storm_Finished
+Martin_LivingDining_Motion: ON_8,Rule: Martin_In_LivingDining1, LivingDining_Power send Command ON
+Martin_LivingDining_Motion: ON_9,Rule: Martin_In_LivingDining2
+Martin_LivingDining_Motion: OFF_12,Rule: Martin_Out_LivingDining, LivingDining_Power send Command OFF, LivingDining_Door send Command CLOSED
+Martin_LivingDining_Motion: ON_15,Rule: Martin_In_LivingDining1, LivingDining_Power send Command ON, Rule: Martin_In_LivingDining2, LivingDining_Door send Command OPEN
+Alice_LivingDining_Motion: ON_19,Rule: Alice_In_LivingDining, LivingDining_Power send Command ON
+Martin_LivingDining_Motion: ON_22,Rule: Martin_In_LivingDining2, LivingDining_Door send Command OPEN, Rule: Martin_In_LivingDining1

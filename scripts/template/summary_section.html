@@ -1,0 +1,27 @@
+<h2>Quick summary</h2>
+<h3>TRIGGER_ASSERT</h3>
+<ul>
+    <li>Number of Trigger in the real system: <em>{{ trigger_real_system }}</em> </li>
+    <li>Number of Trigger in the simulation system: <em>{{ trigger_sim_system }}</em> </li>
+    <li>Matching: <em>{{ trigger_match }}</em>  </li>
+</ul>
+<h3>RULE_ASSERT</h3>
+<ul>
+    <li>Number of Rule in the real system: <em>{{ Rule_real_system }}</em> </li>
+    <li>Number of Rule in the simulation system: <em>{{ Rule_sim_system }}</em> </li>
+    <li>Matching: <em>{{ Rule_match }}</em>  </li>
+</ul>
+
+<h3>TRACE_ASSERT</h3>
+    <div name='TraceSimulary'>
+<!-- <img src='/Users/huongta/Home/Internship/openhab/report/20190505_121800/GtraceDiff_20190505_121800.png' width="1000" height="600"> -->
+    </div>
+<h3>STATE_ASSERT</h3>
+<h4>The sate of the system base on real time</h4>
+    <div name='SystemState'>
+        <!-- <img src='' alt='State of system in two run times' width="1000" height="600"/> -->
+    </div>  
+<h4>The sate of the system base on simulation time</h4>   
+    <div name='SystemState_test'>
+    <!-- <img src='/Users/huongta/Home/Internship/openhab/report/20190505_121800/state_test_20190505_121800.png' alt='State of the simulation system' width="1000" height="600"/> -->
+    </div>
